@@ -29,7 +29,7 @@ public class ParentClass: Decodable {
     
 }
 
-public class ChildClass1: ParentClass {
+public class ChildClass1: ParentClass, AutoEquatable {
     
     let attributeOne: String
     let attributeTwo: Float
@@ -55,7 +55,7 @@ public class ChildClass1: ParentClass {
     }
 }
 
-public class ChildClass2: ParentClass {
+public class ChildClass2: ParentClass, AutoEquatable {
     
     let attributeThree: String
     let attributeFour: Float

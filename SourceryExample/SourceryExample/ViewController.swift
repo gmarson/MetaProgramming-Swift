@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         let a = ChildClass1(attributeOne: "bla", attributeTwo: 3243)
         let b = ChildClass1(attributeOne: "blu", attributeTwo: 435)
         
-        //print(a == b)
+        print(a == b)
     }
 
 
