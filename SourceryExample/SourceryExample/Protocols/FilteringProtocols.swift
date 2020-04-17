@@ -9,3 +9,6 @@
 import Foundation
 
 public protocol AutoEquatable { }
+public protocol ParentComponent: Decodable {
+    var parentProperties: ParentClass { get }
+}

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ParentClass: Decodable {
+public class ParentClass: Decodable, AutoEquatable {
     let first: String
     var second: String?
     let third: Int
@@ -20,67 +20,62 @@ public class ParentClass: Decodable {
         self.third = third
     }
     
-//    public static func ==(lhs: ParentClass, rhs: ParentClass) -> Bool {
-//        guard lhs.first == rhs.first else { return false }
-//        guard lhs.second == rhs.second else { return false }
-//        guard lhs.third == rhs.third else { return false }
-//        return true
-//    }
+    enum CodingKeys: String, CodingKey {
+        case first
+        case second
+        case third
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.first = try container.decode(String.self, forKey: .first)
+        self.second = try container.decodeIfPresent(String.self, forKey: .second)
+        self.third = try container.decode(Int.self, forKey: .third)
+    }
     
 }
 
-public class ChildClass1: ParentClass, AutoEquatable {
-    
+public class ChildClass1: ParentComponent, AutoEquatable {
     let attributeOne: String
     let attributeTwo: Float
+    public var parentProperties: ParentClass
     
     enum CodingKeys: String, CodingKey {
         case attributeOne
         case attributeTwo
     }
-    
-    init(attributeOne: String, attributeTwo: Float) {
+        
+    init(attributeOne: String, attributeTwo: Float, parentProperties: ParentClass) {
         self.attributeOne = attributeOne
         self.attributeTwo = attributeTwo
-        super.init(first: "first", second: "second optional", third: 3)
+        self.parentProperties = parentProperties
     }
     
     required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.attributeOne = try container.decode(String.self, forKey: .attributeOne)
-        
-        self.attributeTwo = try container.decode(Float.self, forKey: .attributeTwo)
-        try super.init(from: decoder)
-        
+        fatalError("not implemented yet")
     }
+
 }
 
-public class ChildClass2: ParentClass, AutoEquatable {
+public class ChildClass2: ParentComponent, AutoEquatable {
     
     let attributeThree: String
     let attributeFour: Float
+    public var parentProperties: ParentClass
     
     enum CodingKeys: String, CodingKey {
         case attributeThree
         case attributeFour
     }
     
-    init(attributeThree: String, attributeFour: Float) {
+    init(attributeThree: String, attributeFour: Float, parentProperties: ParentClass) {
         self.attributeThree = attributeThree
         self.attributeFour = attributeFour
-        super.init(first: "firsst", second: "second optional", third: 3)
+        self.parentProperties = parentProperties
+    }
+
+    required public init(from decoder: Decoder) throws {
+        fatalError("not implemented yet")
     }
     
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.attributeThree = try container.decode(String.self, forKey: .attributeThree)
-        self.attributeFour = try container.decode(Float.self, forKey: .attributeFour)
-        try super.init(from: decoder)
-    }
 }
-
-
-
-
-
-
