@@ -20,6 +20,13 @@ public class ParentClass: Decodable {
         self.third = third
     }
     
+//    public static func ==(lhs: ParentClass, rhs: ParentClass) -> Bool {
+//        guard lhs.first == rhs.first else { return false }
+//        guard lhs.second == rhs.second else { return false }
+//        guard lhs.third == rhs.third else { return false }
+//        return true
+//    }
+    
 }
 
 public class ChildClass1: ParentClass {
@@ -30,6 +37,12 @@ public class ChildClass1: ParentClass {
     enum CodingKeys: String, CodingKey {
         case attributeOne
         case attributeTwo
+    }
+    
+    init(attributeOne: String, attributeTwo: Float) {
+        self.attributeOne = attributeOne
+        self.attributeTwo = attributeTwo
+        super.init(first: "first", second: "second optional", third: 3)
     }
     
     required public init(from decoder: Decoder) throws {
@@ -55,7 +68,7 @@ public class ChildClass2: ParentClass {
     init(attributeThree: String, attributeFour: Float) {
         self.attributeThree = attributeThree
         self.attributeFour = attributeFour
-        super.init(first: "first", second: "second optional", third: 3)
+        super.init(first: "firsst", second: "second optional", third: 3)
     }
     
     required init(from decoder: Decoder) throws {
