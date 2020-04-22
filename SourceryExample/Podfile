@@ -11,6 +11,7 @@ target 'SourceryExample' do
   target 'SourceryExampleTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'SnapshotTesting', '~> 1.7.2'
   end
 
   target 'SourceryExampleUITests' do

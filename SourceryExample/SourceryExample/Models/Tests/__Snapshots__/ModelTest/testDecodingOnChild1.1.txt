@@ -1,0 +1,11 @@
+▿ ChildClass1
+  - attributeOne: "Mocked attributeOne"
+  ▿ attributeTwo: Optional<Float>
+    - some: 90.9
+  ▿ parentProperties: ParentClass
+    ▿ first: Optional<String>
+      - some: "Mocked first"
+    ▿ second: Optional<String>
+      - some: "Mocked second"
+    ▿ third: Optional<Int>
+      - some: 0

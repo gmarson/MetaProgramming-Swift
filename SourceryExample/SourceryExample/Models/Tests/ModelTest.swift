@@ -6,6 +6,7 @@
 //  Copyright © 2020 Gabriel Marson. All rights reserved.
 //
 
+import SnapshotTesting
 import XCTest
 @testable import SourceryExample
 
@@ -43,10 +44,15 @@ class ModelTest: XCTestCase {
         XCTAssertTrue(child1 != child2)
     }
     
-    func testDecoding() {
-        //let child1 = JSONReader.read(from: "Child1", outputType: ChildClass1.self)
+    func testDecodingOnChild1() {
+        guard let child1 = JSONReader.read(from: "Child1", outputType: ChildClass1.self) else {
+            XCTFail("Unable to decode")
+            return
+        }
         
-        
+        assertSnapshot(matching: child1, as: .dump)
     }
+    
+    
 
 }

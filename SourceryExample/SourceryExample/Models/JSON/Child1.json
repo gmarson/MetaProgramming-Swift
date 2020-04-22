@@ -1,10 +1,7 @@
 {
     "attributeOne" : "Mocked attributeOne",
-    "attributeTwo" : "Mocked attributeTwo",
-    "parentProperties" : {
-        "first": "Mocked first"
-        "second": "Mocked second"
-        "third": "Mocked third"
-    }
-    
+    "attributeTwo" : 90.9,
+    "first": "Mocked first",
+    "second": "Mocked second",
+    "third": 0
 }

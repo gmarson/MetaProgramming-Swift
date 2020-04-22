@@ -8,25 +8,29 @@
 
 import Foundation
 
-public class ParentClass: Decodable, AutoEquatable {
-    let first: String
+public struct ParentClass: AutoEquatable, Decodable {
+    let first: String?
     var second: String?
-    let third: Int
+    let third: Int?
     
-
-    init(first: String, second: String?, third: Int) {
+    init(first: String? = nil,
+         second: String? = nil,
+         third: Int? = nil
+    ) {
         self.first = first
         self.second = second
         self.third = third
     }
     
     enum CodingKeys: String, CodingKey {
+        // sourcery:inline:auto:ParentClass.CodingKeys.AutoCodable
         case first
         case second
         case third
+        // sourcery:end
     }
     
-    required public init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.first = try container.decode(String.self, forKey: .first)
         self.second = try container.decodeIfPresent(String.self, forKey: .second)
@@ -35,26 +39,16 @@ public class ParentClass: Decodable, AutoEquatable {
     
 }
 
-public class ChildClass1: ParentComponent, AutoEquatable {
+public struct ChildClass1: ParentComponent, AutoEquatable, AutoDecodable {
     let attributeOne: String
-    let attributeTwo: Float
+    let attributeTwo: Float?
     public var parentProperties: ParentClass
     
-    enum CodingKeys: String, CodingKey {
-        case attributeOne
-        case attributeTwo
-    }
-        
-    init(attributeOne: String, attributeTwo: Float, parentProperties: ParentClass) {
+    init(attributeOne: String, attributeTwo: Float? = nil, parentProperties: ParentClass = ParentClass()) {
         self.attributeOne = attributeOne
         self.attributeTwo = attributeTwo
         self.parentProperties = parentProperties
     }
-    
-    required public init(from decoder: Decoder) throws {
-        fatalError("not implemented yet")
-    }
-
 }
 
 public class ChildClass2: ParentComponent, AutoEquatable {
@@ -72,10 +66,6 @@ public class ChildClass2: ParentComponent, AutoEquatable {
         self.attributeThree = attributeThree
         self.attributeFour = attributeFour
         self.parentProperties = parentProperties
-    }
-
-    required public init(from decoder: Decoder) throws {
-        fatalError("not implemented yet")
     }
     
 }

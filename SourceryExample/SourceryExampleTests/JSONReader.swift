@@ -11,9 +11,9 @@ import Foundation
 @testable import SourceryExample
 
 class JSONReader {
-    static func read<T: Decodable>(from file: String, outputType: T.Type) -> T {
+    static func read<T: Decodable>(from file: String, outputType: T.Type) -> T? {
         let path = Bundle.main.path(forResource: file, ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-        return try! JSONDecoder().decode(T.self, from: data)
+        return try? JSONDecoder().decode(T.self, from: data)
     }
 }
