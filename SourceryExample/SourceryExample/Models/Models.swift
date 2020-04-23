@@ -13,7 +13,7 @@ public struct ParentComponent: AutoEquatable {
     var second: String?
     let third: Int?
     
-    init(first: String? = nil,
+    public init(first: String? = nil,
          second: String? = nil,
          third: Int? = nil
     ) {
@@ -36,16 +36,10 @@ public struct ParentComponent: AutoEquatable {
     }
 }
 
-public struct ChildComponent1: ParentProperties, AutoEquatable, AutoDecodable {
+public struct ChildComponent1: ParentProperties, AutoEquatable, AutoDecodable, AutoInitiable {
     let attributeOne: String
     let attributeTwo: Float?
     public var parentProperties: ParentComponent
-    
-    init(attributeOne: String, attributeTwo: Float? = nil, parentProperties: ParentComponent = ParentComponent()) {
-        self.attributeOne = attributeOne
-        self.attributeTwo = attributeTwo
-        self.parentProperties = parentProperties
-    }
 }
 
 public struct ChildComponent2: ParentProperties, AutoEquatable, AutoDecodable {

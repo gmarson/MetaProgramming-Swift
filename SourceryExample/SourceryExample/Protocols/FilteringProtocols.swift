@@ -8,12 +8,18 @@
 
 import Foundation
 
+// MARK: - Equatable
 public protocol AutoEquatable { }
 
-protocol AutoDecodable: Decodable {}
-protocol AutoEncodable: Encodable {}
-protocol AutoCodable: AutoDecodable, AutoEncodable {}
+// MARK: - Codable
+protocol AutoDecodable: Decodable { }
+protocol AutoEncodable: Encodable { }
+protocol AutoCodable: AutoDecodable, AutoEncodable { }
 
+// MARK: - Component
 public protocol ParentProperties {
     var parentProperties: ParentComponent { get }
 }
+
+// MARK: - Init
+public protocol AutoInitiable { }
