@@ -1,2 +1,2 @@
 # MetaProgramming-Swift-Example
-Using sourcery to generate code Codable and equatable codes 
+Using sourcery to generate Encodable, Equatable and Custom init codes
