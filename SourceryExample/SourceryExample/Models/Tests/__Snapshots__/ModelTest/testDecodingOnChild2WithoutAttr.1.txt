@@ -1,0 +1,7 @@
+▿ ChildComponent2
+  - attributeFour: 9230.9
+  - attributeThree: "Mocked attributeThree"
+  ▿ parentProperties: ParentComponent
+    - first: Optional<String>.none
+    - second: Optional<String>.none
+    - third: Optional<Int>.none

@@ -1,11 +1,10 @@
-▿ ChildComponent1
-  - attributeOne: "Mocked attributeOne"
-  ▿ attributeTwo: Optional<Float>
-    - some: 90.9
+▿ ChildComponent2
+  - attributeFour: 345.0
+  - attributeThree: "Mocked attributeThree"
   ▿ parentProperties: ParentComponent
     ▿ first: Optional<String>
       - some: "Mocked first"
     ▿ second: Optional<String>
       - some: "Mocked second"
     ▿ third: Optional<Int>
-      - some: 976
+      - some: 65

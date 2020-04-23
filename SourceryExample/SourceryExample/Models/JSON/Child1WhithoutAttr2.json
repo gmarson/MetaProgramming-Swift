@@ -1,7 +1,6 @@
 {
     "attributeOne" : "Mocked attributeOne",
-    "attributeTwo" : 90.9,
     "first": "Mocked first",
     "second": "Mocked second",
-    "third": 976
+    "third": 432
 }

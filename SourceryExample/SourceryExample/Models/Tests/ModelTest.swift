@@ -13,13 +13,13 @@ import XCTest
 class ModelTest: XCTestCase {
 
    func testingIfObjectsAreEqual() {
-        let child1 = ChildClass1(
+        let child1 = ChildComponent1(
             attributeOne: "blu",
             attributeTwo: 435,
             parentProperties: .init(first: "first", second: "second", third: 3)
         )
         
-        let child2 = ChildClass1(
+        let child2 = ChildComponent1(
             attributeOne: "blu",
             attributeTwo: 435,
             parentProperties: .init(first: "first", second: "second", third: 3)
@@ -29,13 +29,13 @@ class ModelTest: XCTestCase {
     }
 
     func testingIfObjectsAreNotEqual() {
-        let child1 = ChildClass1(
+        let child1 = ChildComponent1(
             attributeOne: "bla",
             attributeTwo: 3243,
             parentProperties: .init(first: "first", second: "second", third: 3)
         )
         
-        let child2 = ChildClass1(
+        let child2 = ChildComponent1(
             attributeOne: "blu",
             attributeTwo: 435,
             parentProperties: .init(first: "first", second: "second", third: 3)
@@ -45,7 +45,7 @@ class ModelTest: XCTestCase {
     }
     
     func testDecodingOnChild1() {
-        guard let child1 = JSONReader.read(from: "Child1", outputType: ChildClass1.self) else {
+        guard let child1 = JSONReader.read(from: "Child1", outputType: ChildComponent1.self) else {
             XCTFail("Unable to decode")
             return
         }
@@ -53,6 +53,31 @@ class ModelTest: XCTestCase {
         assertSnapshot(matching: child1, as: .dump)
     }
     
+    func testDecodingOnChild1WithoutAttr2() {
+        guard let child1 = JSONReader.read(from: "Child1WhithoutAttr2", outputType: ChildComponent1.self) else {
+            XCTFail("Unable to decode")
+            return
+        }
+        
+        assertSnapshot(matching: child1, as: .dump)
+    }
     
+    func testDecodingOnChild2WithoutAttr() {
+        guard let child2 = JSONReader.read(from: "Child2WithoutParentAttr", outputType: ChildComponent2.self) else {
+            XCTFail("Unable to decode")
+            return
+        }
+        
+        assertSnapshot(matching: child2, as: .dump)
+    }
+    
+    func testDecodingOnChild2() {
+        guard let child1 = JSONReader.read(from: "Child2", outputType: ChildComponent2.self) else {
+            XCTFail("Unable to decode")
+            return
+        }
+        
+        assertSnapshot(matching: child1, as: .dump)
+    }
 
 }

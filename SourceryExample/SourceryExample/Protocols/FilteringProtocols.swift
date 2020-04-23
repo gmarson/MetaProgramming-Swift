@@ -9,9 +9,11 @@
 import Foundation
 
 public protocol AutoEquatable { }
+
 protocol AutoDecodable: Decodable {}
 protocol AutoEncodable: Encodable {}
 protocol AutoCodable: AutoDecodable, AutoEncodable {}
-public protocol ParentComponent {
-    var parentProperties: ParentClass { get }
+
+public protocol ParentProperties {
+    var parentProperties: ParentComponent { get }
 }

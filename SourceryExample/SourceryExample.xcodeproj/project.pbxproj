@@ -10,8 +10,13 @@
 		4A113F3D9FECC15D35063AE1 /* Pods_SourceryExample_SourceryExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5AA27AE1B50FEE458231A8 /* Pods_SourceryExample_SourceryExampleUITests.framework */; };
 		C038B5A8244E23C500741697 /* AutoParentComponentEncodable.swifttemplate in Resources */ = {isa = PBXBuildFile; fileRef = C038B5A7244E23C500741697 /* AutoParentComponentEncodable.swifttemplate */; };
 		C038B5AB24507F3300741697 /* Child1.json in Resources */ = {isa = PBXBuildFile; fileRef = C08519C9244A545100E9E710 /* Child1.json */; };
-		C038B5B12450831F00741697 /* testDecodingOnChild1.1.txt in Resources */ = {isa = PBXBuildFile; fileRef = C038B5B02450831F00741697 /* testDecodingOnChild1.1.txt */; };
 		C038B5B324508C9400741697 /* AutoParentComponentEncodable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C038B5B224508C9400741697 /* AutoParentComponentEncodable.generated.swift */; };
+		C038B5B52450D29500741697 /* Child1WhithoutAttr2.json in Resources */ = {isa = PBXBuildFile; fileRef = C038B5B42450D29500741697 /* Child1WhithoutAttr2.json */; };
+		C038B5B62450D29500741697 /* Child1WhithoutAttr2.json in Resources */ = {isa = PBXBuildFile; fileRef = C038B5B42450D29500741697 /* Child1WhithoutAttr2.json */; };
+		C038B5BB2450D87500741697 /* Child2.json in Resources */ = {isa = PBXBuildFile; fileRef = C038B5BA2450D87500741697 /* Child2.json */; };
+		C038B5BC2450D87500741697 /* Child2.json in Resources */ = {isa = PBXBuildFile; fileRef = C038B5BA2450D87500741697 /* Child2.json */; };
+		C038B5BE2450D88B00741697 /* Child2WithoutParentAttr.json in Resources */ = {isa = PBXBuildFile; fileRef = C038B5BD2450D88B00741697 /* Child2WithoutParentAttr.json */; };
+		C038B5BF2450D88B00741697 /* Child2WithoutParentAttr.json in Resources */ = {isa = PBXBuildFile; fileRef = C038B5BD2450D88B00741697 /* Child2WithoutParentAttr.json */; };
 		C0851979244A24DD00E9E710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0851978244A24DD00E9E710 /* AppDelegate.swift */; };
 		C085197B244A24DD00E9E710 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C085197A244A24DD00E9E710 /* SceneDelegate.swift */; };
 		C085197D244A24DD00E9E710 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C085197C244A24DD00E9E710 /* ViewController.swift */; };
@@ -60,6 +65,12 @@
 		C038B5A7244E23C500741697 /* AutoParentComponentEncodable.swifttemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoParentComponentEncodable.swifttemplate; sourceTree = "<group>"; };
 		C038B5B02450831F00741697 /* testDecodingOnChild1.1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testDecodingOnChild1.1.txt; sourceTree = "<group>"; };
 		C038B5B224508C9400741697 /* AutoParentComponentEncodable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoParentComponentEncodable.generated.swift; sourceTree = "<group>"; };
+		C038B5B42450D29500741697 /* Child1WhithoutAttr2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Child1WhithoutAttr2.json; sourceTree = "<group>"; };
+		C038B5B72450D30600741697 /* testDecodingOnChild1WithoutAttr2.1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testDecodingOnChild1WithoutAttr2.1.txt; sourceTree = "<group>"; };
+		C038B5BA2450D87500741697 /* Child2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Child2.json; sourceTree = "<group>"; };
+		C038B5BD2450D88B00741697 /* Child2WithoutParentAttr.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Child2WithoutParentAttr.json; sourceTree = "<group>"; };
+		C038B5C02451CE8200741697 /* testDecodingOnChild2WithoutAttr.1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testDecodingOnChild2WithoutAttr.1.txt; sourceTree = "<group>"; };
+		C038B5C12451CE8200741697 /* testDecodingOnChild2.1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testDecodingOnChild2.1.txt; sourceTree = "<group>"; };
 		C0851975244A24DD00E9E710 /* SourceryExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SourceryExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0851978244A24DD00E9E710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C085197A244A24DD00E9E710 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +157,9 @@
 		C038B5AF2450831F00741697 /* ModelTest */ = {
 			isa = PBXGroup;
 			children = (
+				C038B5C12451CE8200741697 /* testDecodingOnChild2.1.txt */,
+				C038B5C02451CE8200741697 /* testDecodingOnChild2WithoutAttr.1.txt */,
+				C038B5B72450D30600741697 /* testDecodingOnChild1WithoutAttr2.1.txt */,
 				C038B5B02450831F00741697 /* testDecodingOnChild1.1.txt */,
 			);
 			path = ModelTest;
@@ -259,6 +273,9 @@
 			isa = PBXGroup;
 			children = (
 				C08519C9244A545100E9E710 /* Child1.json */,
+				C038B5BA2450D87500741697 /* Child2.json */,
+				C038B5B42450D29500741697 /* Child1WhithoutAttr2.json */,
+				C038B5BD2450D88B00741697 /* Child2WithoutParentAttr.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -373,11 +390,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0851988244A24E000E9E710 /* LaunchScreen.storyboard in Resources */,
+				C038B5BB2450D87500741697 /* Child2.json in Resources */,
 				C038B5A8244E23C500741697 /* AutoParentComponentEncodable.swifttemplate in Resources */,
 				C038B5AB24507F3300741697 /* Child1.json in Resources */,
 				C0851985244A24E000E9E710 /* Assets.xcassets in Resources */,
+				C038B5BE2450D88B00741697 /* Child2WithoutParentAttr.json in Resources */,
 				C08519B0244A30EA00E9E710 /* Equality.stencil in Resources */,
-				C038B5B12450831F00741697 /* testDecodingOnChild1.1.txt in Resources */,
+				C038B5B52450D29500741697 /* Child1WhithoutAttr2.json in Resources */,
 				C0851980244A24DD00E9E710 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +405,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C038B5B62450D29500741697 /* Child1WhithoutAttr2.json in Resources */,
+				C038B5BF2450D88B00741697 /* Child2WithoutParentAttr.json in Resources */,
+				C038B5BC2450D87500741697 /* Child2.json in Resources */,
 				C08519CA244A545100E9E710 /* Child1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

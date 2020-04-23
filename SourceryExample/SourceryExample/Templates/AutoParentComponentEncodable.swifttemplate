@@ -34,7 +34,7 @@ func typeHasMoreCodingKeysThanStoredProperties(_ type: Type, codingKeys: [String
 }
 func needsDecodableImplementation(for type: Type, codingKeys: (generated: [String], all: [String])) -> Bool {
     
-    if type.implements["ParentComponent"] != nil && type.implements["AutoDecodable"] != nil { return true }
+    if type.implements["ParentProperties"] != nil && type.implements["AutoDecodable"] != nil { return true }
     guard type.implements["AutoDecodable"] != nil else { return false }
     if let enumType = type as? Enum, enumType.rawTypeName == nil { return true }
 
@@ -226,7 +226,7 @@ extension <%= type.name %> {
         <%_ if let customMethod = customMethod { -%>
         <%_ %><%= type.name %>.<%= customMethod.callName %>(from: <% if customMethod.parameters.first?.name == "decoder" { %>decoder<% } else { %>container<% } %>)<% -%>
         <%_ } else { -%>
-        <%_ if variable.name == "parentProperties" { %>ParentClass(from: decoder)<% } -%>
+        <%_ if variable.name == "parentProperties" { %>ParentComponent(from: decoder)<% } -%>
         <%_ else { -%>
         <%_ %>container.decode<% if variable.isOptional { %>IfPresent<% } %>(<%= variable.unwrappedTypeName %>.self, forKey: .<%= variable.name %>)<% -%>
         <%_ } -%>

@@ -2,30 +2,30 @@
 // DO NOT EDIT
 
 
-// MARK: ChildClass1 Equatable
+// MARK: ChildComponent1 Equatable
 
-extension ChildClass1: Equatable {
-     public static func ==(lhs: ChildClass1, rhs: ChildClass1) -> Bool {
+extension ChildComponent1: Equatable {
+     public static func ==(lhs: ChildComponent1, rhs: ChildComponent1) -> Bool {
         guard lhs.attributeOne == rhs.attributeOne else { return false }
         guard lhs.attributeTwo == rhs.attributeTwo else { return false }
         guard lhs.parentProperties == rhs.parentProperties else { return false }
         return true
     }
 }
-// MARK: ChildClass2 Equatable
+// MARK: ChildComponent2 Equatable
 
-extension ChildClass2: Equatable {
-     public static func ==(lhs: ChildClass2, rhs: ChildClass2) -> Bool {
+extension ChildComponent2: Equatable {
+     public static func ==(lhs: ChildComponent2, rhs: ChildComponent2) -> Bool {
         guard lhs.attributeThree == rhs.attributeThree else { return false }
         guard lhs.attributeFour == rhs.attributeFour else { return false }
         guard lhs.parentProperties == rhs.parentProperties else { return false }
         return true
     }
 }
-// MARK: ParentClass Equatable
+// MARK: ParentComponent Equatable
 
-extension ParentClass: Equatable {
-     public static func ==(lhs: ParentClass, rhs: ParentClass) -> Bool {
+extension ParentComponent: Equatable {
+     public static func ==(lhs: ParentComponent, rhs: ParentComponent) -> Bool {
         guard lhs.first == rhs.first else { return false }
         guard lhs.second == rhs.second else { return false }
         guard lhs.third == rhs.third else { return false }

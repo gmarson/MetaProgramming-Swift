@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 
-extension ChildClass1 {
+extension ChildComponent1 {
 
     enum CodingKeys: String, CodingKey {
         case attributeOne
@@ -15,7 +15,25 @@ extension ChildClass1 {
 
         attributeOne = try container.decode(String.self, forKey: .attributeOne)
         attributeTwo = try container.decodeIfPresent(Float.self, forKey: .attributeTwo)
-        parentProperties = try ParentClass(from: decoder)
+        parentProperties = try ParentComponent(from: decoder)
+    }
+
+}
+
+extension ChildComponent2 {
+
+    enum CodingKeys: String, CodingKey {
+        case attributeThree
+        case attributeFour
+        case parentProperties
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        attributeThree = try container.decode(String.self, forKey: .attributeThree)
+        attributeFour = try container.decode(Float.self, forKey: .attributeFour)
+        parentProperties = try ParentComponent(from: decoder)
     }
 
 }

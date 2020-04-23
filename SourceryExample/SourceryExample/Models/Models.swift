@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ParentClass: AutoEquatable, Decodable {
+public struct ParentComponent: AutoEquatable {
     let first: String?
     var second: String?
     let third: Int?
@@ -23,46 +23,41 @@ public struct ParentClass: AutoEquatable, Decodable {
     }
     
     enum CodingKeys: String, CodingKey {
-        // sourcery:inline:auto:ParentClass.CodingKeys.AutoCodable
         case first
         case second
         case third
-        // sourcery:end
     }
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.first = try container.decode(String.self, forKey: .first)
+        self.first = try container.decodeIfPresent(String.self, forKey: .first)
         self.second = try container.decodeIfPresent(String.self, forKey: .second)
-        self.third = try container.decode(Int.self, forKey: .third)
+        self.third = try container.decodeIfPresent(Int.self, forKey: .third)
     }
-    
 }
 
-public struct ChildClass1: ParentComponent, AutoEquatable, AutoDecodable {
+public struct ChildComponent1: ParentProperties, AutoEquatable, AutoDecodable {
     let attributeOne: String
     let attributeTwo: Float?
-    public var parentProperties: ParentClass
+    public var parentProperties: ParentComponent
     
-    init(attributeOne: String, attributeTwo: Float? = nil, parentProperties: ParentClass = ParentClass()) {
+    init(attributeOne: String, attributeTwo: Float? = nil, parentProperties: ParentComponent = ParentComponent()) {
         self.attributeOne = attributeOne
         self.attributeTwo = attributeTwo
         self.parentProperties = parentProperties
     }
 }
 
-public class ChildClass2: ParentComponent, AutoEquatable {
+public struct ChildComponent2: ParentProperties, AutoEquatable, AutoDecodable {
     
     let attributeThree: String
     let attributeFour: Float
-    public var parentProperties: ParentClass
+    public var parentProperties: ParentComponent
     
-    enum CodingKeys: String, CodingKey {
-        case attributeThree
-        case attributeFour
-    }
-    
-    init(attributeThree: String, attributeFour: Float, parentProperties: ParentClass) {
+    init(attributeThree: String,
+         attributeFour: Float,
+         parentProperties: ParentComponent = ParentComponent()
+    ) {
         self.attributeThree = attributeThree
         self.attributeFour = attributeFour
         self.parentProperties = parentProperties
