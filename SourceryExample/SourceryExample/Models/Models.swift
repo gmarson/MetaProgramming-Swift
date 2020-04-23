@@ -8,19 +8,10 @@
 
 import Foundation
 
-public struct ParentComponent: AutoEquatable {
+public struct ParentComponent: AutoEquatable, AutoInitiable {
     let first: String?
     var second: String?
     let third: Int?
-    
-    public init(first: String? = nil,
-         second: String? = nil,
-         third: Int? = nil
-    ) {
-        self.first = first
-        self.second = second
-        self.third = third
-    }
     
     enum CodingKeys: String, CodingKey {
         case first
@@ -42,19 +33,10 @@ public struct ChildComponent1: ParentProperties, AutoEquatable, AutoDecodable, A
     public var parentProperties: ParentComponent
 }
 
-public struct ChildComponent2: ParentProperties, AutoEquatable, AutoDecodable {
+public struct ChildComponent2: ParentProperties, AutoEquatable, AutoDecodable, AutoInitiable {
     
     let attributeThree: String
     let attributeFour: Float
     public var parentProperties: ParentComponent
-    
-    init(attributeThree: String,
-         attributeFour: Float,
-         parentProperties: ParentComponent = ParentComponent()
-    ) {
-        self.attributeThree = attributeThree
-        self.attributeFour = attributeFour
-        self.parentProperties = parentProperties
-    }
     
 }

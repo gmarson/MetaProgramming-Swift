@@ -14,15 +14,15 @@ class ModelTest: XCTestCase {
 
    func testingIfObjectsAreEqual() {
         let child1 = ChildComponent1(
-            attributeOne: "blu",
+            attributeOne: "attributeOne",
             attributeTwo: 435,
-            parentProperties: .init(first: "first", second: "second", third: 3)
+            parentProperties: .init("first", second: "second", third: 3)
         )
         
         let child2 = ChildComponent1(
-            attributeOne: "blu",
+            attributeOne: "attributeOne",
             attributeTwo: 435,
-            parentProperties: .init(first: "first", second: "second", third: 3)
+            parentProperties: .init("first", second: "second", third: 3)
         )
         
         XCTAssertTrue(child1 == child2)
@@ -30,18 +30,36 @@ class ModelTest: XCTestCase {
 
     func testingIfObjectsAreNotEqual() {
         let child1 = ChildComponent1(
-            attributeOne: "bla",
+            attributeOne: "attributeOne",
             attributeTwo: 3243,
-            parentProperties: .init(first: "first", second: "second", third: 3)
+            parentProperties: .init("first", second: "second", third: 3)
         )
         
         let child2 = ChildComponent1(
-            attributeOne: "blu",
+            attributeOne: "attributeOnee",
             attributeTwo: 435,
-            parentProperties: .init(first: "first", second: "second", third: 3)
+            parentProperties: .init("first", second: "second", third: 3)
         )
         
         XCTAssertTrue(child1 != child2)
+    }
+    
+    func testingInitChild1() {
+        let attr1 = "attributeOne"
+        let attr2: Float = 2.0
+        let parentProperties: ParentComponent = .init("first", second: "second", third: 3)
+        
+        let child1 = ChildComponent1(
+            attributeOne: attr1,
+            attributeTwo: attr2,
+            parentProperties: parentProperties
+        )
+        
+        XCTAssert(
+            child1.attributeOne == attr1 &&
+            child1.attributeTwo! == attr2 &&
+            child1.parentProperties == parentProperties,
+            "something is wrong with init method")
     }
     
     func testDecodingOnChild1() {

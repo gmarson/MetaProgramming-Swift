@@ -1,9 +1,9 @@
 <%_ for type in types.all
-                where (type.implements["AutoInitiable"] != nil && type.implements["ParentProperties"] != nil) { -%>
+                where (type.implements["AutoInitiable"] != nil) { -%>
 extension <%= type.name %> {
     <%_ var firstTime: Bool = true -%>
     <%= type.accessLevel -%> init(<%_ for variable in type.instanceVariables { -%>
-    <%_ if !firstTime { -%>,<%_ } %> <%_ else { %><%= variable.name -%><%_ } %> <%= variable.name -%>: <%= variable.unwrappedTypeName _%> <%_ if variable.isOptional { -%>? = nil <%_ } else { _%> <%_ if variable.unwrappedTypeName == "ParentComponent" { -%> = ParentComponent()<%_} -%>
+    <%_ if !firstTime { -%>,<%_ } %> <%_ else { %><%= "_" -%><%_ } %> <%= variable.name -%>: <%= variable.unwrappedTypeName _%> <%_ if variable.isOptional { -%>? = nil <%_ } else { _%> <%_ if variable.unwrappedTypeName == "ParentComponent" { -%> = ParentComponent()<%_} -%>
 <%_ } -%>
     <%_ firstTime = false -%>
     <%_ } -%>
@@ -14,3 +14,4 @@ extension <%= type.name %> {
     }
 }
 <%_ } -%>
+
