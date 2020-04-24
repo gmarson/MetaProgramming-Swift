@@ -1,6 +1,6 @@
 <%
 func variableNameAndType(_ variable: Variable, _ isFirstTime: Bool) -> String {
-    let first = isFirstTime ? "\t_ " : ",\n\t\t"
+    let first = isFirstTime ? "\t" : ",\n\t\t"
     let nameAndType = "\(variable.name): \(variable.unwrappedTypeName)"
     return first + nameAndType
 }
@@ -17,7 +17,7 @@ func variableOptionalAndValue(_ variable: Variable) -> String {
 -%>
 <% for type in types.all
     where (type.implements["AutoInitiable"] != nil) { -%>
-extension <%= type.name %> {
+// sourcery:inline:auto:<%= type.name %>.Init
     <%_ var firstTime: Bool = true -%>
 <%= "\t" + type.accessLevel -%> init(
     <% for variable in type.instanceVariables { -%>
@@ -29,6 +29,6 @@ extension <%= type.name %> {
         self.<%= variable.name %> = <%= variable.name %>
         <%_ } -%>
     }
-}
+// sourcery:end
 
 <%_ } %>
