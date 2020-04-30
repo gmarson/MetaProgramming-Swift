@@ -1,6 +1,6 @@
 <%
 func variableNameAndType(_ variable: Variable, _ isFirstTime: Bool) -> String {
-    let first = isFirstTime ? "\t" : ",\n\t\t"
+    var first = isFirstTime ? "\n\t\t" : ",\n\t\t"
     let nameAndType = "\(variable.name): \(variable.unwrappedTypeName)"
     return first + nameAndType
 }
@@ -32,3 +32,4 @@ func variableOptionalAndValue(_ variable: Variable) -> String {
 // sourcery:end
 
 <%_ } %>
+
