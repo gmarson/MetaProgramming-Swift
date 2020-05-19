@@ -2,10 +2,10 @@
   - attributeOne: "Mocked attributeOne"
   ▿ attributeTwo: Optional<Float>
     - some: 90.9
-  ▿ parentProperties: ParentComponent
-    ▿ first: Optional<String>
-      - some: "Mocked first"
-    ▿ second: Optional<String>
-      - some: "Mocked second"
-    ▿ third: Optional<Int>
-      - some: 976
+  ▿ baseProperties: Optional<BaseComponent>
+    ▿ some: BaseComponent
+      - alignement: Alignement.vertical
+      ▿ baseDescription: Optional<String>
+        - some: "Mocked description"
+      ▿ baseName: Optional<String>
+        - some: "Mocked name"

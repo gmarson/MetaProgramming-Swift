@@ -1,7 +1,9 @@
 {
     "attributeOne" : "Mocked attributeOne",
     "attributeTwo" : 90.9,
-    "first": "Mocked first",
-    "second": "Mocked second",
-    "third": 976
+    "baseProperties": {
+        "baseName": "Mocked name",
+        "baseDescription": "Mocked description",
+        "alignement": "vertical"
+    }
 }

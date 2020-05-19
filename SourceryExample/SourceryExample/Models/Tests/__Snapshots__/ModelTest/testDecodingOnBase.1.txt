@@ -1,0 +1,6 @@
+▿ BaseComponent
+  - alignement: Alignement.vertical
+  ▿ baseDescription: Optional<String>
+    - some: "Mocked description"
+  ▿ baseName: Optional<String>
+    - some: "Mocked name"

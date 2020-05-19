@@ -1,14 +1,24 @@
-// Generated using Sourcery 0.17.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.18.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
+// MARK: BaseComponent Equatable
+
+extension BaseComponent: Equatable {
+     public static func ==(lhs: BaseComponent, rhs: BaseComponent) -> Bool {
+        guard lhs.baseName == rhs.baseName else { return false }
+        guard lhs.baseDescription == rhs.baseDescription else { return false }
+        guard lhs.alignement == rhs.alignement else { return false }
+        return true
+    }
+}
 // MARK: ChildComponent1 Equatable
 
 extension ChildComponent1: Equatable {
      public static func ==(lhs: ChildComponent1, rhs: ChildComponent1) -> Bool {
         guard lhs.attributeOne == rhs.attributeOne else { return false }
         guard lhs.attributeTwo == rhs.attributeTwo else { return false }
-        guard lhs.parentProperties == rhs.parentProperties else { return false }
+        guard lhs.baseProperties == rhs.baseProperties else { return false }
         return true
     }
 }
@@ -18,17 +28,7 @@ extension ChildComponent2: Equatable {
      public static func ==(lhs: ChildComponent2, rhs: ChildComponent2) -> Bool {
         guard lhs.attributeThree == rhs.attributeThree else { return false }
         guard lhs.attributeFour == rhs.attributeFour else { return false }
-        guard lhs.parentProperties == rhs.parentProperties else { return false }
-        return true
-    }
-}
-// MARK: ParentComponent Equatable
-
-extension ParentComponent: Equatable {
-     public static func ==(lhs: ParentComponent, rhs: ParentComponent) -> Bool {
-        guard lhs.first == rhs.first else { return false }
-        guard lhs.second == rhs.second else { return false }
-        guard lhs.third == rhs.third else { return false }
+        guard lhs.baseProperties == rhs.baseProperties else { return false }
         return true
     }
 }

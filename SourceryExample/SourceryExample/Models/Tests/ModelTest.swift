@@ -11,55 +11,72 @@ import XCTest
 @testable import SourceryExample
 
 class ModelTest: XCTestCase {
-
-   func testingIfObjectsAreEqual() {
+    
+    func testingIfObjectsAreEqual() {
+        
+        let base: BaseComponent = .init(baseName: "name", baseDescription: "description", alignement: .vertical)
+        let attributeOne = "attributeOne"
+        let attributeTwo: Float = 435.0
+        
         let child1 = ChildComponent1(
-            attributeOne: "attributeOne",
-            attributeTwo: 435,
-            parentProperties: .init("first", second: "second", third: 3)
+            attributeOne: attributeOne,
+            attributeTwo: attributeTwo,
+            baseProperties: base
         )
         
         let child2 = ChildComponent1(
-            attributeOne: "attributeOne",
-            attributeTwo: 435,
-            parentProperties: .init("first", second: "second", third: 3)
+            attributeOne: attributeOne,
+            attributeTwo: attributeTwo,
+            baseProperties: base
         )
         
         XCTAssertTrue(child1 == child2)
     }
-
+    
     func testingIfObjectsAreNotEqual() {
+        
+        let base: BaseComponent = .init(baseName: "name", baseDescription: "description", alignement: .vertical)
+        
         let child1 = ChildComponent1(
             attributeOne: "attributeOne",
             attributeTwo: 3243,
-            parentProperties: .init("first", second: "second", third: 3)
+            baseProperties: base
         )
         
         let child2 = ChildComponent1(
             attributeOne: "attributeOnee",
             attributeTwo: 435,
-            parentProperties: .init("first", second: "second", third: 3)
+            baseProperties: base
         )
         
         XCTAssertTrue(child1 != child2)
     }
     
     func testingInitChild1() {
-        let attr1 = "attributeOne"
-        let attr2: Float = 2.0
-        let parentProperties: ParentComponent = .init("first", second: "second", third: 3)
+        let attributeOne = "attributeOne"
+        let attributeTwo: Float = 2.0
+        let base: BaseComponent = .init(baseName: "name", baseDescription: "description", alignement: .vertical)
         
         let child1 = ChildComponent1(
-            attributeOne: attr1,
-            attributeTwo: attr2,
-            parentProperties: parentProperties
+            attributeOne: attributeOne,
+            attributeTwo: attributeTwo,
+            baseProperties: base
         )
         
         XCTAssert(
-            child1.attributeOne == attr1 &&
-            child1.attributeTwo! == attr2 &&
-            child1.parentProperties == parentProperties,
+            child1.attributeOne == attributeOne &&
+                child1.attributeTwo! == attributeTwo &&
+                child1.baseProperties == base,
             "something is wrong with init method")
+    }
+    
+    func testDecodingOnBase() {
+        guard let base = JSONReader.read(from: "Base", outputType: BaseComponent.self) else {
+            XCTFail("Unable to decode")
+            return
+        }
+        
+        assertSnapshot(matching: base, as: .dump)
     }
     
     func testDecodingOnChild1() {
@@ -90,12 +107,12 @@ class ModelTest: XCTestCase {
     }
     
     func testDecodingOnChild2() {
-        guard let child1 = JSONReader.read(from: "Child2", outputType: ChildComponent2.self) else {
+        guard let child2 = JSONReader.read(from: "Child2", outputType: ChildComponent2.self) else {
             XCTFail("Unable to decode")
             return
         }
         
-        assertSnapshot(matching: child1, as: .dump)
+        assertSnapshot(matching: child2, as: .dump)
     }
-
+    
 }

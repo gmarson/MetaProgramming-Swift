@@ -1,6 +1,8 @@
 {
     "attributeOne" : "Mocked attributeOne",
-    "first": "Mocked first",
-    "second": "Mocked second",
-    "third": 432
+    "baseProperties": {
+        "baseName": "Mocked name",
+        "baseDescription": "Mocked description",
+        "alignement": "vertical"
+    }
 }

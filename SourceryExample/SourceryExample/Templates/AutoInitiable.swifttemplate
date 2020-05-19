@@ -1,0 +1,38 @@
+<%
+func variableNameAndType(_ variable: Variable, _ isFirstTime: Bool) -> String {
+    var first = isFirstTime ? "\n\t\t" : ",\n\t\t"
+    let nameAndType = (isFirstTime ? "_ " : "") + "\(variable.name): \(variable.unwrappedTypeName)"
+    return first + nameAndType
+}
+
+func variableOptionalAndValue(_ variable: Variable, _ classType: Type?) -> String {
+    if let defaultValue = variable.defaultValue {
+        let string = variable.isOptional ? "? = " : " = "
+        return string + defaultValue
+    } else if variable.isOptional {
+        return "? = nil"
+    } else {
+        return ""
+    }
+}
+-%>
+
+<% for type in types.all
+    where (type.implements["AutoInitiable"] != nil) { -%>
+    <%_ var firstTime: Bool = true -%>
+// MARK: - <%= type.name -%> custom init
+extension <%= type.name -%> {
+<%= "\t" + type.accessLevel -%> init(<% for variable in type.instanceVariables { -%>
+        <%_= variableNameAndType(variable, firstTime) %><%= variableOptionalAndValue(variable, variable.type) -%>
+    <%_ firstTime = false -%>
+    <%_ } %>
+    ) {
+        <%_ for variable in type.instanceVariables { -%>
+        self.<%= variable.name %> = <%= variable.name %>
+        <%_ } -%>
+    }
+}
+
+<%_ } -%>
+
+
