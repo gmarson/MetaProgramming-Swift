@@ -18,10 +18,13 @@ func variableOptionalAndValue(_ variable: Variable, _ classType: Type?) -> Strin
 -%>
 
 <% for type in types.all
-    where (type.implements["AutoInitiable"] != nil) { -%>
+    where (type.implements["AutoInitiable"] != nil) {
+-%>
+
+// sourcery:inline:auto:<%= type.name %>.Init
     <%_ var firstTime: Bool = true -%>
+
 // MARK: - <%= type.name -%> custom init
-extension <%= type.name -%> {
 <%= "\t" + type.accessLevel -%> init(<% for variable in type.instanceVariables { -%>
         <%_= variableNameAndType(variable, firstTime) %><%= variableOptionalAndValue(variable, variable.type) -%>
     <%_ firstTime = false -%>
@@ -31,8 +34,8 @@ extension <%= type.name -%> {
         self.<%= variable.name %> = <%= variable.name %>
         <%_ } -%>
     }
-}
 
+// sourcery:end
 <%_ } -%>
 
 
