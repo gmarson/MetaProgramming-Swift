@@ -17,6 +17,7 @@ extension BaseComponent {
         baseName = try container.decodeIfPresent(String.self, forKey: .baseName)
         baseDescription = try container.decodeIfPresent(String.self, forKey: .baseDescription)
         alignement = try container.decode(Alignement.self, forKey: .alignement)
+
     }
 }
 
@@ -35,6 +36,7 @@ extension ChildComponent1 {
         attributeOne = try container.decode(String.self, forKey: .attributeOne)
         attributeTwo = try container.decodeIfPresent(Float.self, forKey: .attributeTwo)
         baseProperties = try container.decodeIfPresent(BaseComponent.self, forKey: .baseProperties)
+
     }
 }
 
@@ -53,5 +55,24 @@ extension ChildComponent2 {
         attributeThree = try container.decode(String.self, forKey: .attributeThree)
         attributeFour = try container.decode(Float.self, forKey: .attributeFour)
         baseProperties = try container.decodeIfPresent(BaseComponent.self, forKey: .baseProperties)
+
+    }
+}
+
+// MARK: - Decodable for ChildComponent3
+extension ChildComponent3 {
+
+    enum CodingKeys: String, CodingKey {
+        case baseProperties
+        case importantAttribute
+        case notImportantAttribute
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        baseProperties = try container.decodeIfPresent(BaseComponent.self, forKey: .baseProperties)
+        importantAttribute = try container.decode([String: String].self, forKey: .importantAttribute)
+        notImportantAttribute = [String: String]()
     }
 }
