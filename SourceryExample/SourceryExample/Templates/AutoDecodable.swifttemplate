@@ -183,7 +183,7 @@ extension <%= type.name %> {
         <%_ } else { -%>
         <%_ for key in codingKeys.all { -%>
         <%_ guard let variable = type.instanceVariables.first(where: { $0.name == key && !$0.isComputed }) else { continue } -%>
-        <%_ let shouldNotSkip = variable.annotations["skipInitiable"] == nil -%>
+        <%_ let shouldNotSkip = variable.annotations["skipDecodable"] == nil -%>
         <%_ let defaultValue = defaultDecodingValue(for: variable, of: type) -%>
         <%_ let customMethod = customDecodingMethod(for: variable, of: type) -%>
         <%_ let shouldTry = customMethod?.throws == true || customMethod == nil && shouldNotSkip -%>

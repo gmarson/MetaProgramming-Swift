@@ -38,6 +38,7 @@ extension ChildComponent3: Equatable {
      public static func ==(lhs: ChildComponent3, rhs: ChildComponent3) -> Bool {
          guard lhs.baseProperties == rhs.baseProperties else { return false }
          guard lhs.importantAttribute == rhs.importantAttribute else { return false }
+         guard lhs.notImportantAttribute == rhs.notImportantAttribute else { return false }
         return true
     }
 }

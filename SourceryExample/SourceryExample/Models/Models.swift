@@ -76,7 +76,7 @@ public struct ChildComponent2: BaseProperties, AutoEquatable, AutoDecodable, Aut
 public struct ChildComponent3: BaseProperties, AutoEquatable, AutoInitiable, AutoDecodable {
     public var baseProperties: BaseComponent?
     public var importantAttribute: [String: String]
-    // sourcery: skipEquality, skipInitiable
+    // sourcery: skipEquality, skipDecodable
     public var notImportantAttribute: [String: String]?
 
 // sourcery:inline:auto:ChildComponent3.Init
