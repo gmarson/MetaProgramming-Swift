@@ -9,8 +9,19 @@
 import Foundation
 
 // MARK: - Component
-public protocol BaseProperties {
+public protocol BaseProperties: AutoMockable {
     var baseProperties: BaseComponent? { get }
+    func fullDescription() -> String
+    func doSomething()
+}
+
+extension BaseProperties {
+    public func fullDescription() -> String {
+        guard let name = baseProperties?.baseName, let description = baseProperties?.baseDescription else { return "Empty" }
+        return "Name: " + name + "\nDescription: " + description
+    }
+    
+    public  func doSomething() { }
 }
 
 public enum Alignement: String, Decodable, Equatable {
@@ -27,7 +38,7 @@ public struct BaseComponent: AutoEquatable, AutoInitiable, AutoDecodable {
 
 // MARK: - BaseComponent custom init
 	public init(
-		_ baseName: String? = nil,
+		baseName: String? = nil,
 		baseDescription: String? = nil,
 		alignement: Alignement = .vertical
     ) {

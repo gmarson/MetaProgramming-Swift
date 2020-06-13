@@ -17,7 +17,7 @@ public struct ChildComponent1: BaseProperties, AutoEquatable, AutoDecodable, Aut
 
 // MARK: - ChildComponent1 custom init
 	public init(
-		_ attributeOne: String,
+		attributeOne: String,
 		attributeTwo: Float? = nil,
 		baseProperties: BaseComponent? = nil
     ) {
@@ -37,7 +37,7 @@ public struct ChildComponent2: BaseProperties, AutoEquatable, AutoDecodable, Aut
 
 // MARK: - ChildComponent2 custom init
 	public init(
-		_ attributeThree: String,
+		attributeThree: String,
 		attributeFour: Float,
 		baseProperties: BaseComponent? = nil
     ) {
@@ -58,7 +58,7 @@ public struct ChildComponent3: BaseProperties, AutoEquatable, AutoInitiable, Aut
 
 // MARK: - ChildComponent3 custom init
 	public init(
-		_ baseProperties: BaseComponent? = nil,
+		baseProperties: BaseComponent? = nil,
 		importantAttribute: [String: String],
 		notImportantAttribute: [String: String]? = nil
     ) {

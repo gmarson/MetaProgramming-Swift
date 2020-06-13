@@ -1,7 +1,7 @@
 <%
 func variableNameAndType(_ variable: Variable, _ isFirstTime: Bool) -> String {
     var first = isFirstTime ? "\n\t\t" : ",\n\t\t"
-    let nameAndType = (isFirstTime ? "_ " : "") + "\(variable.name): \(variable.unwrappedTypeName)"
+    let nameAndType = "\(variable.name): \(variable.unwrappedTypeName)"
     return first + nameAndType
 }
 
