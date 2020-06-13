@@ -3,7 +3,7 @@
 
 
 // MARK: - BaseComponent custom init
-extension BaseComponent {
+// sourcery:inline:autoBaseComponent.init
 	public init(
 		_ baseName: String? = nil,
 		baseDescription: String? = nil,
@@ -13,10 +13,10 @@ extension BaseComponent {
         self.baseDescription = baseDescription
         self.alignement = alignement
     }
-}
+// sourcery:end
 
 // MARK: - ChildComponent1 custom init
-extension ChildComponent1 {
+// sourcery:inline:autoChildComponent1.init
 	public init(
 		_ attributeOne: String,
 		attributeTwo: Float? = nil,
@@ -26,10 +26,10 @@ extension ChildComponent1 {
         self.attributeTwo = attributeTwo
         self.baseProperties = baseProperties
     }
-}
+// sourcery:end
 
 // MARK: - ChildComponent2 custom init
-extension ChildComponent2 {
+// sourcery:inline:autoChildComponent2.init
 	public init(
 		_ attributeThree: String,
 		attributeFour: Float,
@@ -39,7 +39,20 @@ extension ChildComponent2 {
         self.attributeFour = attributeFour
         self.baseProperties = baseProperties
     }
-}
+// sourcery:end
+
+// MARK: - ChildComponent3 custom init
+// sourcery:inline:autoChildComponent3.init
+	public init(
+		_ baseProperties: BaseComponent? = nil,
+		importantAttribute: [String: String],
+		notImportantAttribute: [String: String]
+    ) {
+        self.baseProperties = baseProperties
+        self.importantAttribute = importantAttribute
+        self.notImportantAttribute = notImportantAttribute
+    }
+// sourcery:end
 
 
 
