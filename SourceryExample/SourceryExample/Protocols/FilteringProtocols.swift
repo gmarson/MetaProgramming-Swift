@@ -17,7 +17,5 @@ protocol AutoDecodable: Decodable { }
 // MARK: - Init
 public protocol AutoInitiable { }
 
-// MARK: - Component
-public protocol BaseProperties {
-    var baseProperties: BaseComponent? { get }
-}
+// MARK: - Mockable
+public protocol AutoMockable { }
