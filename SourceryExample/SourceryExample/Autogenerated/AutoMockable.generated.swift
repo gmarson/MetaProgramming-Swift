@@ -25,34 +25,39 @@ import AppKit
 
 
 
-class BasePropertiesMock: BaseProperties {
-    var baseProperties: BaseComponent?
-
-    //MARK: - fullDescription
-
-    var fullDescriptionCallsCount = 0
-    var fullDescriptionCalled: Bool {
-        return fullDescriptionCallsCount > 0
+class NetworkDispatcherMock: NetworkDispatcher {
+    var baseUrl: URL {
+        get { return underlyingBaseUrl }
+        set(value) { underlyingBaseUrl = value }
     }
-    var fullDescriptionReturnValue: String!
-    var fullDescriptionClosure: (() -> String)?
+    var underlyingBaseUrl: URL!
 
-    func fullDescription() -> String {
-        fullDescriptionCallsCount += 1
-        return fullDescriptionClosure.map({ $0() }) ?? fullDescriptionReturnValue
+    //MARK: - init
+
+    var initBaseUrlReceivedBaseUrl: String?
+    var initBaseUrlReceivedInvocations: [String] = []
+    var initBaseUrlClosure: ((String) -> Void)?
+
+    required init(baseUrl: String) {
+        initBaseUrlReceivedBaseUrl = baseUrl
+        initBaseUrlReceivedInvocations.append(baseUrl)
+        initBaseUrlClosure?(baseUrl)
     }
+    //MARK: - request
 
-    //MARK: - doSomething
-
-    var doSomethingCallsCount = 0
-    var doSomethingCalled: Bool {
-        return doSomethingCallsCount > 0
+    var requestMethodHeadersOnCompletionCallsCount = 0
+    var requestMethodHeadersOnCompletionCalled: Bool {
+        return requestMethodHeadersOnCompletionCallsCount > 0
     }
-    var doSomethingClosure: (() -> Void)?
+    var requestMethodHeadersOnCompletionReceivedArguments: (method: HTTPMethod, headers: Headers?, onCompletion: (Result<Data?, Error>)?)?
+    var requestMethodHeadersOnCompletionReceivedInvocations: [(method: HTTPMethod, headers: Headers?, onCompletion: (Result<Data?, Error>)?)] = []
+    var requestMethodHeadersOnCompletionClosure: ((HTTPMethod, Headers?, (Result<Data?, Error>)?) -> Void)?
 
-    func doSomething() {
-        doSomethingCallsCount += 1
-        doSomethingClosure?()
+    func request(method: HTTPMethod, headers: Headers?, onCompletion: (Result<Data?, Error>)?) {
+        requestMethodHeadersOnCompletionCallsCount += 1
+        requestMethodHeadersOnCompletionReceivedArguments = (method: method, headers: headers, onCompletion: onCompletion)
+        requestMethodHeadersOnCompletionReceivedInvocations.append((method: method, headers: headers, onCompletion: onCompletion))
+        requestMethodHeadersOnCompletionClosure?(method, headers, onCompletion)
     }
 
 }

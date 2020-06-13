@@ -9,19 +9,8 @@
 import Foundation
 
 // MARK: - Component
-public protocol BaseProperties: AutoMockable {
+public protocol BaseProperties {
     var baseProperties: BaseComponent? { get }
-    func fullDescription() -> String
-    func doSomething()
-}
-
-extension BaseProperties {
-    public func fullDescription() -> String {
-        guard let name = baseProperties?.baseName, let description = baseProperties?.baseDescription else { return "Empty" }
-        return "Name: " + name + "\nDescription: " + description
-    }
-    
-    public  func doSomething() { }
 }
 
 public enum Alignement: String, Decodable, Equatable {
@@ -29,10 +18,10 @@ public enum Alignement: String, Decodable, Equatable {
     case horizontal
 }
 
-public struct BaseComponent: AutoEquatable, AutoInitiable, AutoDecodable {
-    var baseName: String?
-    var baseDescription: String?
-    var alignement: Alignement = .vertical
+public final class BaseComponent: AutoEquatable, AutoInitiable, AutoDecodable {
+    public var baseName: String?
+    public var baseDescription: String?
+    public var alignement: Alignement = .vertical
 
 // sourcery:inline:auto:BaseComponent.Init
 
