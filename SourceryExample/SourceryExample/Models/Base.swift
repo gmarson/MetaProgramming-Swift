@@ -22,18 +22,4 @@ public final class BaseComponent: AutoEquatable, AutoInitiable, AutoDecodable {
     public var baseName: String?
     public var baseDescription: String?
     public var alignement: Alignement = .vertical
-
-// sourcery:inline:auto:BaseComponent.Init
-
-// MARK: - BaseComponent custom init
-	public init(
-		baseName: String? = nil,
-		baseDescription: String? = nil,
-		alignement: Alignement = .vertical
-    ) {
-        self.baseName = baseName
-        self.baseDescription = baseDescription
-        self.alignement = alignement
-    }
-// sourcery:end
 }
