@@ -17,4 +17,5 @@ protocol AutoDecodable: Decodable { }
 // MARK: - Init
 public protocol AutoInitiable { }
 
-
+// MARK: - Mockable
+public protocol AutoMockable { }
