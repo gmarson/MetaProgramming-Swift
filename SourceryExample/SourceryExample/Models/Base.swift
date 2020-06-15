@@ -18,10 +18,10 @@ public enum Alignement: String, Decodable, Equatable {
     case horizontal
 }
 
-public final class BaseComponent: AutoEquatable, AutoInitiable, AutoDecodable {
+public struct BaseComponent: AutoEquatable, AutoInitiable, AutoDecodable {
     public var baseName: String?
     public var baseDescription: String?
-    public var alignement: Alignement = .vertical
+    public var alignement: Alignement = .horizontal
 
 // sourcery:inline:auto:BaseComponent.Init
 
@@ -29,7 +29,7 @@ public final class BaseComponent: AutoEquatable, AutoInitiable, AutoDecodable {
 	public init(
 		baseName: String? = nil,
 		baseDescription: String? = nil,
-		alignement: Alignement = .vertical
+		alignement: Alignement = .horizontal
     ) {
         self.baseName = baseName
         self.baseDescription = baseDescription
