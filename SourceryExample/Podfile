@@ -6,7 +6,6 @@ target 'SourceryExample' do
   use_frameworks!
   
   # Pods for SourceryExample
-  pod 'Sourcery'
   
   target 'SourceryExampleTests' do
     inherit! :search_paths

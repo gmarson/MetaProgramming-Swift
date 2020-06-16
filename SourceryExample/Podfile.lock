@@ -1,20 +1,16 @@
 PODS:
   - SnapshotTesting (1.7.2)
-  - Sourcery (0.17.0)
 
 DEPENDENCIES:
   - SnapshotTesting (~> 1.7.2)
-  - Sourcery
 
 SPEC REPOS:
   trunk:
     - SnapshotTesting
-    - Sourcery
 
 SPEC CHECKSUMS:
   SnapshotTesting: 8caa6661fea7c8019d5b46de77c16bab99c36c5c
-  Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
 
-PODFILE CHECKSUM: b9879df43122494dd33d229afed21c9b8a168f5e
+PODFILE CHECKSUM: a72e820ec361998f645455f893ea13134d523ee3
 
-COCOAPODS: 1.9.2
+COCOAPODS: 1.9.3
