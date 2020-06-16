@@ -195,7 +195,8 @@ extension <%= type.name %> {
         <%_ %>container.decode<% if variable.isOptional { %>IfPresent<% } %>(<%= variable.unwrappedTypeName %>.self, forKey: .<%= variable.name %>)<% -%>
         <%_ %><% if shouldWrapTry { -%>)<% } -%>
         <%_ if let defaultValue = defaultValue { %> ?? <%= type.name %>.<%= defaultValue.name -%><%_ } %>
-        <%_ } else { %><%= variable.unwrappedTypeName -%>()<%_ } %> <%_ } %>
+        <%_ } else { %><%= variable.unwrappedTypeName -%>()
+        <%_ } %> <%_ } %>
         <%_ } -%>
     }
 }

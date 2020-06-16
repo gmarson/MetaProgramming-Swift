@@ -8,24 +8,10 @@
 
 import Foundation
 
-public struct ChildComponent1: BaseProperties, AutoEquatable, AutoDecodable, AutoInitiable {
+public struct ChildComponent1: BaseProperties, AutoEquatable, AutoDecodable {
     let attributeOne: String
     let attributeTwo: Float?
     public var baseProperties: BaseComponent?
-
-// sourcery:inline:auto:ChildComponent1.Init
-
-// MARK: - ChildComponent1 custom init
-	public init(
-		attributeOne: String,
-		attributeTwo: Float? = nil,
-		baseProperties: BaseComponent? = nil
-    ) {
-        self.attributeOne = attributeOne
-        self.attributeTwo = attributeTwo
-        self.baseProperties = baseProperties
-    }
-// sourcery:end
 }
 
 public struct ChildComponent2: BaseProperties, AutoEquatable, AutoDecodable, AutoInitiable {
@@ -53,6 +39,9 @@ public struct ChildComponent3: BaseProperties, AutoEquatable, AutoInitiable, Aut
     public var importantAttribute: [String: String]
     // sourcery: skipEquality, skipDecodable
     public var notImportantAttribute: [String: String]?
+    public var something: Float
+    public var somehting2: String
+    public var childComponent2: ChildComponent2
 
 // sourcery:inline:auto:ChildComponent3.Init
 
@@ -60,11 +49,17 @@ public struct ChildComponent3: BaseProperties, AutoEquatable, AutoInitiable, Aut
 	public init(
 		baseProperties: BaseComponent? = nil,
 		importantAttribute: [String: String],
-		notImportantAttribute: [String: String]? = nil
+		notImportantAttribute: [String: String]? = nil,
+		something: Float,
+		somehting2: String,
+		childComponent2: ChildComponent2
     ) {
         self.baseProperties = baseProperties
         self.importantAttribute = importantAttribute
         self.notImportantAttribute = notImportantAttribute
+        self.something = something
+        self.somehting2 = somehting2
+        self.childComponent2 = childComponent2
     }
 // sourcery:end
 }
