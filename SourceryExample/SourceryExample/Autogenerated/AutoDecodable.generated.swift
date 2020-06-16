@@ -66,9 +66,6 @@ extension ChildComponent3 {
         case baseProperties
         case importantAttribute
         case notImportantAttribute
-        case something
-        case somehting2
-        case childComponent2
     }
 
     public init(from decoder: Decoder) throws {
@@ -76,10 +73,7 @@ extension ChildComponent3 {
 
         baseProperties = try container.decodeIfPresent(BaseComponent.self, forKey: .baseProperties)
         importantAttribute = try container.decode([String: String].self, forKey: .importantAttribute)
-        notImportantAttribute = [String: String]()
-        something = try container.decode(Float.self, forKey: .something)
-        somehting2 = try container.decode(String.self, forKey: .somehting2)
-        childComponent2 = try container.decode(ChildComponent2.self, forKey: .childComponent2)
+        notImportantAttribute = nil
 
     }
 }

@@ -39,9 +39,6 @@ public struct ChildComponent3: BaseProperties, AutoEquatable, AutoInitiable, Aut
     public var importantAttribute: [String: String]
     // sourcery: skipEquality, skipDecodable
     public var notImportantAttribute: [String: String]?
-    public var something: Float
-    public var somehting2: String
-    public var childComponent2: ChildComponent2
 
 // sourcery:inline:auto:ChildComponent3.Init
 
@@ -49,17 +46,11 @@ public struct ChildComponent3: BaseProperties, AutoEquatable, AutoInitiable, Aut
 	public init(
 		baseProperties: BaseComponent? = nil,
 		importantAttribute: [String: String],
-		notImportantAttribute: [String: String]? = nil,
-		something: Float,
-		somehting2: String,
-		childComponent2: ChildComponent2
+		notImportantAttribute: [String: String]? = nil
     ) {
         self.baseProperties = baseProperties
         self.importantAttribute = importantAttribute
         self.notImportantAttribute = notImportantAttribute
-        self.something = something
-        self.somehting2 = somehting2
-        self.childComponent2 = childComponent2
     }
 // sourcery:end
 }
