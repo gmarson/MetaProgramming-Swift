@@ -8,49 +8,20 @@
 
 import Foundation
 
-public struct ChildComponent1: BaseProperties, AutoEquatable, AutoDecodable {
+public struct ChildComponent1: BaseProperties {
     let attributeOne: String
     let attributeTwo: Float?
     public var baseProperties: BaseComponent?
 }
 
-public struct ChildComponent2: BaseProperties, AutoEquatable, AutoDecodable, AutoInitiable {
+public struct ChildComponent2: BaseProperties {
     let attributeThree: String
     let attributeFour: Float
     public var baseProperties: BaseComponent?
-
-// sourcery:inline:auto:ChildComponent2.Init
-
-// MARK: - ChildComponent2 custom init
-	public init(
-		attributeThree: String,
-		attributeFour: Float,
-		baseProperties: BaseComponent? = nil
-    ) {
-        self.attributeThree = attributeThree
-        self.attributeFour = attributeFour
-        self.baseProperties = baseProperties
-    }
-// sourcery:end
 }
 
-public struct ChildComponent3: BaseProperties, AutoEquatable, AutoInitiable, AutoDecodable {
+public struct ChildComponent3: BaseProperties {
     public var baseProperties: BaseComponent?
     public var importantAttribute: [String: String]
-    // sourcery: skipEquality, skipDecodable
     public var notImportantAttribute: [String: String]?
-
-// sourcery:inline:auto:ChildComponent3.Init
-
-// MARK: - ChildComponent3 custom init
-	public init(
-		baseProperties: BaseComponent? = nil,
-		importantAttribute: [String: String],
-		notImportantAttribute: [String: String]? = nil
-    ) {
-        self.baseProperties = baseProperties
-        self.importantAttribute = importantAttribute
-        self.notImportantAttribute = notImportantAttribute
-    }
-// sourcery:end
 }
