@@ -9,7 +9,6 @@ extension BaseComponent: Equatable {
          guard lhs.baseName == rhs.baseName else { return false }
          guard lhs.baseDescription == rhs.baseDescription else { return false }
          guard lhs.alignement == rhs.alignement else { return false }
-         guard lhs.size == rhs.size else { return false }
         return true
     }
 }
@@ -20,25 +19,6 @@ extension ChildComponent1: Equatable {
          guard lhs.attributeOne == rhs.attributeOne else { return false }
          guard lhs.attributeTwo == rhs.attributeTwo else { return false }
          guard lhs.baseProperties == rhs.baseProperties else { return false }
-        return true
-    }
-}
-
-// MARK: ChildComponent2 Equatable
-extension ChildComponent2: Equatable {
-     public static func ==(lhs: ChildComponent2, rhs: ChildComponent2) -> Bool {
-         guard lhs.attributeThree == rhs.attributeThree else { return false }
-         guard lhs.attributeFour == rhs.attributeFour else { return false }
-         guard lhs.baseProperties == rhs.baseProperties else { return false }
-        return true
-    }
-}
-
-// MARK: ChildComponent3 Equatable
-extension ChildComponent3: Equatable {
-     public static func ==(lhs: ChildComponent3, rhs: ChildComponent3) -> Bool {
-         guard lhs.baseProperties == rhs.baseProperties else { return false }
-         guard lhs.importantAttribute == rhs.importantAttribute else { return false }
         return true
     }
 }

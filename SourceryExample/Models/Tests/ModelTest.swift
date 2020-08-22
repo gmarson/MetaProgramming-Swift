@@ -97,22 +97,4 @@ class ModelTest: XCTestCase {
         assertSnapshot(matching: child1, as: .dump)
     }
     
-    func testDecodingOnChild2WithoutAttr() {
-        guard let child2 = JSONReader.read(from: "Child2WithoutParentAttr", outputType: ChildComponent2.self) else {
-            XCTFail("Unable to decode")
-            return
-        }
-        
-        assertSnapshot(matching: child2, as: .dump)
-    }
-    
-    func testDecodingOnChild2() {
-        guard let child2 = JSONReader.read(from: "Child2", outputType: ChildComponent2.self) else {
-            XCTFail("Unable to decode")
-            return
-        }
-        
-        assertSnapshot(matching: child2, as: .dump)
-    }
-    
 }

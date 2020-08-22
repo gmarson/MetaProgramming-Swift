@@ -18,35 +18,10 @@ public enum Alignement: String, Decodable, Equatable {
     case horizontal
 }
 
-public struct Size: Decodable, Equatable, AutoInitiable {
-    
-    var width: Double
-    var maxWidth: Double
-    var height: Double
-    var maxHeight: Double
-
-// sourcery:inline:auto:Size.Init
-
-// MARK: - Size custom init
-	public init(
-		width: Double,
-		maxWidth: Double,
-		height: Double,
-		maxHeight: Double
-    ) {
-        self.width = width
-        self.maxWidth = maxWidth
-        self.height = height
-        self.maxHeight = maxHeight
-    }
-// sourcery:end
-}
-
 public struct BaseComponent: AutoEquatable, AutoInitiable, AutoDecodable {
     public var baseName: String?
     public var baseDescription: String?
     public var alignement: Alignement = .horizontal
-    public var size: Size
 
 // sourcery:inline:auto:BaseComponent.Init
 
@@ -54,13 +29,11 @@ public struct BaseComponent: AutoEquatable, AutoInitiable, AutoDecodable {
 	public init(
 		baseName: String? = nil,
 		baseDescription: String? = nil,
-		alignement: Alignement = .horizontal,
-		size: Size
+		alignement: Alignement = .horizontal
     ) {
         self.baseName = baseName
         self.baseDescription = baseDescription
         self.alignement = alignement
-        self.size = size
     }
 // sourcery:end
 }
