@@ -9,6 +9,7 @@ extension BaseComponent {
         case baseName
         case baseDescription
         case alignement
+        case size
     }
 
     public init(from decoder: Decoder) throws {
@@ -17,6 +18,7 @@ extension BaseComponent {
         baseName = try container.decodeIfPresent(String.self, forKey: .baseName)
         baseDescription = try container.decodeIfPresent(String.self, forKey: .baseDescription)
         alignement = try container.decode(Alignement.self, forKey: .alignement)
+        size = try container.decode(Size.self, forKey: .size)
 
     }
 }

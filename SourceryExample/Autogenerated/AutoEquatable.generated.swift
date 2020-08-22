@@ -9,6 +9,7 @@ extension BaseComponent: Equatable {
          guard lhs.baseName == rhs.baseName else { return false }
          guard lhs.baseDescription == rhs.baseDescription else { return false }
          guard lhs.alignement == rhs.alignement else { return false }
+         guard lhs.size == rhs.size else { return false }
         return true
     }
 }
