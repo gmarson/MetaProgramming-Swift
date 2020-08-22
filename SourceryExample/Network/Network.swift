@@ -17,7 +17,7 @@ public enum HTTPMethod: String {
 
 public typealias Headers = [String:String]
 
-protocol NetworkDispatcher: AutoMockable {
+protocol NetworkDispatcher {
     var baseUrl: URL { get }
     init(baseUrl: String)
     func request(method: HTTPMethod, headers: Headers?, onCompletion: (Result<Data?, Error>)?)
