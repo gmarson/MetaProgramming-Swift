@@ -1,6 +1,5 @@
-// Generated using Sourcery 0.18.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 1.4.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
-
 
 // MARK: - Decodable for BaseComponent
 extension BaseComponent {

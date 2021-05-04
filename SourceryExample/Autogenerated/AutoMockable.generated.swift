@@ -1,6 +1,5 @@
-// Generated using Sourcery 0.18.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 1.4.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
-
 // swiftlint:disable line_length
 // swiftlint:disable variable_name
 
@@ -49,11 +48,11 @@ class NetworkDispatcherMock: NetworkDispatcher {
     var requestMethodHeadersOnCompletionCalled: Bool {
         return requestMethodHeadersOnCompletionCallsCount > 0
     }
-    var requestMethodHeadersOnCompletionReceivedArguments: (method: HTTPMethod, headers: Headers?, onCompletion: (Result<Data?, Error>)?)?
-    var requestMethodHeadersOnCompletionReceivedInvocations: [(method: HTTPMethod, headers: Headers?, onCompletion: (Result<Data?, Error>)?)] = []
-    var requestMethodHeadersOnCompletionClosure: ((HTTPMethod, Headers?, (Result<Data?, Error>)?) -> Void)?
+    var requestMethodHeadersOnCompletionReceivedArguments: (method: HTTPMethod, headers: Headers?, onCompletion: Result<Data?, Error>?)?
+    var requestMethodHeadersOnCompletionReceivedInvocations: [(method: HTTPMethod, headers: Headers?, onCompletion: Result<Data?, Error>?)] = []
+    var requestMethodHeadersOnCompletionClosure: ((HTTPMethod, Headers?, Result<Data?, Error>?) -> Void)?
 
-    func request(method: HTTPMethod, headers: Headers?, onCompletion: (Result<Data?, Error>)?) {
+    func request(method: HTTPMethod, headers: Headers?, onCompletion: Result<Data?, Error>?) {
         requestMethodHeadersOnCompletionCallsCount += 1
         requestMethodHeadersOnCompletionReceivedArguments = (method: method, headers: headers, onCompletion: onCompletion)
         requestMethodHeadersOnCompletionReceivedInvocations.append((method: method, headers: headers, onCompletion: onCompletion))
